@@ -1,8 +1,13 @@
-# hex-tiles
+# hex game
 HTML5 Pixi.js/Phaser hex-based TBS Game
 
 ## Getting Started
-Download or clone, then open index.html with any browser (Chrome recommended).
+Download or clone
 
-## Demo
-Automatically deployed on my website, linked above.
+npm install http-server
+
+http-server
+
+then open localhost:8080
+
+thanks to kodokon, his repo here https://github.com/kodokon/hex-tiles
