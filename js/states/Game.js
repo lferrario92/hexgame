@@ -10,10 +10,31 @@ HexGame.GameState = {
     this.MARGIN_X = 30;
     this.MARGIN_Y = 5;
   },
+  update: function(){
+    this.game.inputEnabled = true
+    if (this.game.input.activePointer.isDown) { 
+      if (this.game.origDragPoint) {  
+        // move the camera by the amount the mouse has moved since last update
+        this.game.camera.x += this.game.origDragPoint.x - this.game.input.activePointer.position.x;
+        this.game.camera.y += this.game.origDragPoint.y - this.game.input.activePointer.position.y;
+      } 
+      // set new drag origin to current position  
+      this.game.origDragPoint = this.game.input.activePointer.position.clone();
+    } else {
+      this.game.origDragPoint = null;
+    }
+  },
   create: function() {
     this.map = JSON.parse(this.game.cache.getText('map'));
     this.board = new HexGame.Board(this, this.map.grid);
     this.places = this.add.group();
+
+//    this.game.camera.scale.x = 0.8;
+//    this.game.camera.scale.y = 0.8;
+    this.game.camera.bounds.width = 1920;
+    this.game.camera.bounds.height = 1920;
+    this.game.camera.screenView.width = 920;
+    this.game.camera.screenView.height = 920;
 
     this.playerUnits = this.add.group();
     this.enemyUnits = this.add.group();
