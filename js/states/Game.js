@@ -29,8 +29,8 @@ HexGame.GameState = {
     this.board = new HexGame.Board(this, this.map.grid);
     this.places = this.add.group();
 
-//    this.game.camera.scale.x = 0.8;
-//    this.game.camera.scale.y = 0.8;
+    this.game.camera.scale.x = 0.8;
+    this.game.camera.scale.y = 0.8;
     this.game.camera.bounds.width = 1920;
     this.game.camera.bounds.height = 1920;
     this.game.camera.screenView.width = 920;

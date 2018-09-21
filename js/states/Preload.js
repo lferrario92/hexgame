@@ -11,6 +11,7 @@ HexGame.PreloadState = {
 
     //terrains
     this.load.image('grass', 'assets/images/grass2.png');
+    this.load.image('sand', 'assets/images/sand.png');
     this.load.image('grasstrees', 'assets/images/grass3.png');
     this.load.image('grasstrees2', 'assets/images/grass4.png');
     this.load.image('rocks', 'assets/images/rocks.png');

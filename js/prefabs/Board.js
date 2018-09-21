@@ -36,17 +36,24 @@ HexGame.Board = function(state, grid) {
       if (value > 0) {
         this.grid[row][col] = 1
       }
-      if (value > 0.4) {
+      if (value > 0.25) {
         this.grid[row][col] = 2
       }
-      if (value > 0.7) {
+      if (value > 0.4) {
         this.grid[row][col] = 3
+      }
+      if (value > 0.7) {
+        this.grid[row][col] = 4
+      }
+      if (value > 0.8) {
+        this.grid[row][col] = 5
       }
     }
   }
 
   this.terrains = [
     {asset: 'water', blocked: true},
+    {asset: 'sand'},
     {asset: 'grass'},
     {asset: 'grasstrees'},
     {asset: 'grasstrees2'},

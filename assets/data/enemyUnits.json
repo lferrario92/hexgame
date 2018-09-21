@@ -4,6 +4,7 @@
     "attack": 9,
     "defense": 6,
     "health": 8,
+    "type": "melee",
     "row": 0,
     "col": 7
   },
@@ -12,6 +13,7 @@
     "attack": 9,
     "defense": 6,
     "health": 8,
+    "type": "melee",
     "row": 1,
     "col": 7
   },
@@ -20,6 +22,7 @@
     "attack": 9,
     "defense": 6,
     "health": 8,
+    "type": "melee",
     "row": 2,
     "col": 7
   },
@@ -28,6 +31,7 @@
     "attack": 9,
     "defense": 6,
     "health": 8,
+    "type": "melee",
     "row": 4,
     "col": 7
   },
@@ -36,6 +40,7 @@
     "attack": 9,
     "defense": 6,
     "health": 8,
+    "type": "melee",
     "row": 5,
     "col": 7
   },
@@ -44,6 +49,7 @@
     "attack": 15,
     "defense": 6,
     "health": 20,
+    "type": "melee",
     "row": 3,
     "col": 7
   },
@@ -52,6 +58,7 @@
     "attack": 15,
     "defense": 6,
     "health": 20,
+    "type": "melee",
     "row": 2,
     "col": 5
   },
@@ -60,6 +67,7 @@
     "attack": 15,
     "defense": 6,
     "health": 20,
+    "type": "melee",
     "row": 3,
     "col": 4
   }

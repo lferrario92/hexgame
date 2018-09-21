@@ -5,6 +5,7 @@
     "defense": 6,
     "health": 40,
     "hasMoved": false,
+    "type": "melee",
     "row": 0,
     "col": 1
   },
@@ -14,6 +15,7 @@
     "defense": 5,
     "health": 20,
     "hasMoved": false,
+    "type": "melee",
     "row": 1,
     "col": 2
   },
@@ -23,6 +25,7 @@
     "defense": 5,
     "health": 20,
     "hasMoved": false,
+    "type": "melee",
     "row": 1,
     "col": 0
   },
@@ -32,6 +35,7 @@
     "defense": 4,
     "health": 18,
     "hasMoved": false,
+    "type": "ranged",
     "row": 5,
     "col": 2
   }

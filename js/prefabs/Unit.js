@@ -88,8 +88,15 @@ HexGame.Unit.prototype.attack = function(attacked) {
   var damageAttacked = Math.max(0, attacker.data.attack * Math.random() - attacked.data.defense * Math.random());
   var damageAttacker = Math.max(0, attacked.data.attack * Math.random() - attacker.data.defense * Math.random());
 
-  attacked.data.health -= damageAttacked;
-  attacker.data.health -= damageAttacker;
+  if(this.data.type == "melee"){
+    attacker.data.health -= damageAttacker;
+    attacked.data.health -= damageAttacked;
+
+  } else if (this.data.type == "ranged") {
+    console.log('ranged')
+    //only damages attacked unit
+    attacked.data.health -= damageAttacked;
+  }
 
   if(attacked.data.health <= 0) {
     attacked.kill();
