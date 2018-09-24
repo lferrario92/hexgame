@@ -30,6 +30,16 @@ HexGame.PreloadState = {
     this.load.text('playerUnits', 'assets/data/playerUnits.json');
     this.load.text('enemyUnits', 'assets/data/enemyUnits.json');
 
+    testUnitType = {
+        "asset": "sacredWarrior",
+        "attack": 14,
+        "defense": 6,
+        "health": 40,
+        "hasMoved": false,
+        "type": "melee",
+        "row": 0,
+        "col": 1
+    };
   },
   create: function() {
     this.state.start('Game');

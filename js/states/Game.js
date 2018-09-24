@@ -29,8 +29,8 @@ HexGame.GameState = {
     this.board = new HexGame.Board(this, this.map.grid);
     this.places = this.add.group();
 
-    this.game.camera.scale.x = 0.8;
-    this.game.camera.scale.y = 0.8;
+    //this.game.camera.scale.x = 0.8;
+    //this.game.camera.scale.y = 0.8;
     this.game.camera.bounds.width = 1920;
     this.game.camera.bounds.height = 1920;
     this.game.camera.screenView.width = 920;
@@ -74,6 +74,13 @@ HexGame.GameState = {
     this.board.forEach(function(tile){
       tile.events.onInputDown.removeAll();
     }, this);
+  },
+  createUnit: function(unitGiven) {
+    console.log('create a unit for test');
+    console.log(this.testUnitType);
+
+  //  unit = new HexGame.Unit(this, this.testUnitType);
+    console.log(unitGiven);
   },
   newTurn: function(){
     //create an array to keep all alive units
@@ -124,7 +131,6 @@ HexGame.GameState = {
 
     if(!unitData.hasMoved) {
       this.selectUnit();
-      unitData.hasMoved = true;
     } else {
       console.log("ya movió");
     }
@@ -161,6 +167,9 @@ HexGame.GameState = {
     this.playerBase.row = this.map.playerBase.row;
     this.playerBase.col = this.map.playerBase.col;
     this.places.add(this.playerBase);
+
+    this.playerBase.inputEnabled = true
+    this.playerBase.events.onInputDown.add(this.createUnit, this.testUnitType);
 
     //enemy home base
     var pos = this.board.getXYFromRowCol(this.map.enemyBase.row, this.map.enemyBase.col);

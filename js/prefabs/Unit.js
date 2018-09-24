@@ -12,6 +12,9 @@ HexGame.Unit = function(state, data) {
   this.col = data.col;
   this.data = data;
 
+  var lifeBarStyle = { font: "16px Arial", fill: "red", backgroundColor: "blue" }
+  this.lifeBar = this.game.add.text(position.x, position.y, Math.floor(this.data.health), lifeBarStyle);
+
   this.anchor.setTo(0.5);
 
   //this.inputEnabled = true;
@@ -61,12 +64,20 @@ HexGame.Unit.prototype.moveUnit = function(tile){
   var pos = this.board.getXYFromRowCol(tile.row, tile.col);
 
   var unitMovement = this.game.add.tween(this);
+  var lifeBarMovement = this.game.add.tween(this.lifeBar);
 
   unitMovement.to(pos, 200);
+  lifeBarMovement.to(pos, 200);
+
   unitMovement.onComplete.add(function(){
     this.state.uiBlocked = false;
     this.row = tile.row;
     this.col = tile.col;
+    this.inputEnabled = false;
+    this.hasMoved = true;
+
+    this.lifeBar.x = this.x;
+    this.lifeBar.y = this.y;
 
     //check for battles
     this.checkBattle();
@@ -78,7 +89,11 @@ HexGame.Unit.prototype.moveUnit = function(tile){
     this.state.prepareNextUnit();
 
   }, this);
+  lifeBarMovement.onComplete.add(function(){
+    this.lifeBar.text = Math.floor(this.data.health);
+  }, this);
   unitMovement.start();
+  lifeBarMovement.start();
 };
 
 HexGame.Unit.prototype.attack = function(attacked) {
@@ -100,10 +115,12 @@ HexGame.Unit.prototype.attack = function(attacked) {
 
   if(attacked.data.health <= 0) {
     attacked.kill();
+    attacked.lifeBar.kill();
   }
 
   if(attacker.data.health <= 0) {
     attacker.kill();
+    attacker.lifeBar.kill();
   }
 };
 
